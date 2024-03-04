@@ -58,5 +58,9 @@ vim.opt.tabstop = 2               -- Number of spaces that a <Tab> in the file c
 vim.opt.shiftwidth = 2            -- Finally, the third option, shiftwidth manages the indentation
                                   -- when you use the '>>' or '<<' operators to add or remove 
                                   -- indentation to an already existing line/block of code
-
+-- Set relative numbers
 vim.opt.relativenumber = true
+
+-- Set column indicator at 80
+vim.opt.colorcolumn = {80}
+ 
