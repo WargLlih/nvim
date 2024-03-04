@@ -59,3 +59,4 @@ vim.opt.shiftwidth = 2            -- Finally, the third option, shiftwidth manag
                                   -- when you use the '>>' or '<<' operators to add or remove 
                                   -- indentation to an already existing line/block of code
 
+vim.opt.relativenumber = true
