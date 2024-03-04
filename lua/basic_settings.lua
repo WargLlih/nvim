@@ -53,9 +53,9 @@ vim.opt.scrolloff = 10
 
 -- Set the tab settings
 vim.opt.expandtab = true          -- Use spaces instead of tabs
-vim.opt.tabstop = 4               -- Number of spaces that a <Tab> in the file counts for
+vim.opt.tabstop = 2               -- Number of spaces that a <Tab> in the file counts for
 
-vim.opt.shiftwidth = 4            -- Finally, the third option, shiftwidth manages the indentation
+vim.opt.shiftwidth = 2            -- Finally, the third option, shiftwidth manages the indentation
                                   -- when you use the '>>' or '<<' operators to add or remove 
                                   -- indentation to an already existing line/block of code
 
