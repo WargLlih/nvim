@@ -22,3 +22,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require("keymap.telescope")
 require("copilot.suggestion").toggle_auto_trigger()
+
+vim.cmd("colorscheme kanagawa-dragon")
