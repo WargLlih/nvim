@@ -19,9 +19,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup("plugins")
+
+vim.cmd("colorscheme kanagawa-dragon")
+
 require("keymap.telescope")
 require("copilot.suggestion").toggle_auto_trigger()
 require('lualine').setup()
-
-vim.cmd("colorscheme kanagawa-dragon")
