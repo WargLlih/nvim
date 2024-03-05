@@ -20,11 +20,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
+-- setup plugins
 require("lazy").setup("plugins")
 
+-- using kanagawa
 vim.cmd("colorscheme kanagawa-dragon")
 
+-- telescope keymap
 require("keymap.telescope")
+
+-- copilot setup
 require("copilot.suggestion").toggle_auto_trigger()
+
+-- lualine setup
 require('lualine').setup()
+
+-- bufferline setup
+vim.opt.termguicolors = true
+require("bufferline").setup{}
