@@ -1,4 +1,5 @@
 require("keymap.base")
+require("keymap.editor")
 require("basic_settings")
 
 -- [[ Basic Autocommands ]]
