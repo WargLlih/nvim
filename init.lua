@@ -25,13 +25,13 @@ require("lazy").setup("plugins")
 vim.cmd("colorscheme kanagawa-dragon")
 
 -- telescope keymap
-require("keymap.telescope")
+require("keymap.telescope-keymaps")
 
 -- copilot setup
 require("copilot.suggestion").toggle_auto_trigger()
 
 -- lualine setup
-require('lualine').setup()
+require('lualine').setup({})
 
 -- bufferline setup
 vim.opt.termguicolors = true
