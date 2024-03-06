@@ -1,9 +1,7 @@
 require("keymap.base")
 require("keymap.editor")
 require("basic_settings")
-
--- [[ Basic Autocommands ]]
---  See :help lua-guide-autocommands
+require("keymap.notify")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
