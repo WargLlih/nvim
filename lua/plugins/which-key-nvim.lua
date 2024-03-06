@@ -92,5 +92,5 @@ return {
             buftypes = {},
             filetypes = {},
         },
-    }
+    },
 }
