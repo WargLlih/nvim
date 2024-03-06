@@ -131,7 +131,7 @@ return { -- LSP Configuration & Plugins
         },
       },
       gopls = {},
-      -- tsserver = {},
+      tsserver = {},
 
       lua_ls = {
         -- cmd = {...},
