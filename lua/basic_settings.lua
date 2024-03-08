@@ -63,4 +63,6 @@ vim.opt.relativenumber = true
 
 -- Set column indicator at 80
 vim.opt.colorcolumn = {80}
- 
+
+vim.opt.wrap = true
+
