@@ -31,7 +31,9 @@ require("keymap.telescope-keymaps")
 require("copilot.suggestion").toggle_auto_trigger()
 
 -- lualine setup
-require('lualine').setup({})
+require('lualine').setup({
+  options = { theme = 'iceberg_dark' }
+})
 
 -- bufferline setup
 vim.opt.termguicolors = true
