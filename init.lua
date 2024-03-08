@@ -27,9 +27,6 @@ vim.cmd("colorscheme kanagawa-dragon")
 -- telescope keymap
 require("keymap.telescope-keymaps")
 
--- copilot setup
-require("copilot.suggestion").toggle_auto_trigger()
-
 -- lualine setup
 require('lualine').setup({
   options = { theme = 'iceberg_dark' }
