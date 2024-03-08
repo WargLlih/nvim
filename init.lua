@@ -37,4 +37,12 @@ require('lualine').setup({
 
 -- bufferline setup
 vim.opt.termguicolors = true
-require("bufferline").setup{}
+require("bufferline").setup {}
+
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  buffer = buffer,
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end
+})
