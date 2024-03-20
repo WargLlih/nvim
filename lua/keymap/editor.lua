@@ -11,3 +11,11 @@ vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>", { desc = "Toggle file ex
 
 vim.keymap.set("n", "q", "<cmd>bdelete<cr><esc><cmd>blast<cr><esc>", { desc = "Delete buffer" })
 
+vim.keymap.set(
+  "n",
+  "<A-S-f>",
+  function()
+    vim.lsp.buf.format { async = false }
+  end,
+  { desc = "Format buffer" }
+)
