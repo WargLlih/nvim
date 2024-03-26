@@ -1,3 +1,3 @@
-vim.keymap.set("<leader>bp", "<Cmd>BufferLineTogglePin<CR>", "[B]uffer [P]in")
-vim.keymap.set("<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Prev buffer")
-vim.keymap.set("<S-l>", "<cmd>BufferLineCycleNext<cr>", "Next buffer")
+vim.keymap.set('n', "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "[B]uffer [P]in" })
+vim.keymap.set('n', "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+vim.keymap.set('n', "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })

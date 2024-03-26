@@ -20,16 +20,8 @@ return {
       },
       suggestion = {
         enabled = true,
-        auto_trigger = true,
+        auto_trigger = false,
         debounce = 75,
-        keymap = {
-          accept = "<A-.>",
-          accept_word = false,
-          accept_line = false,
-          next = "<C-.>",
-          prev = "<C-,>",
-          -- dismiss = "<C-h>",
-        },
       },
       filetypes = {
         yaml = true,

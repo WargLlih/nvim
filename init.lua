@@ -46,4 +46,4 @@ require("keymap.plugins.lazy")
 require("keymap.plugins.notify")
 require("keymap.plugins.telescope-keymaps")
 require("keymap.plugins.bufferline-keymaps")
-
+require("keymap.plugins.copilot")
