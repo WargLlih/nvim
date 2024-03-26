@@ -9,8 +9,10 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Filesytem
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>", { desc = "Toggle file explorer" })
 
+-- Close current buffer
 vim.keymap.set("n", "q", "<cmd>bdelete<cr><esc><cmd>blast<cr><esc>", { desc = "Delete buffer" })
 
+-- Auto format
 vim.keymap.set(
   "n",
   "<A-S-f>",

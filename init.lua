@@ -1,7 +1,4 @@
-require("keymap.base")
-require("keymap.editor")
 require("basic_settings")
-require("keymap.notify")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -24,7 +21,11 @@ require("lazy").setup("plugins")
 -- using kanagawa
 vim.cmd("colorscheme kanagawa-dragon")
 
--- telescope keymap
+-- keymaps
+require("keymap.base")
+require("keymap.editor")
+require("keymap.lazy")
+require("keymap.notify")
 require("keymap.telescope-keymaps")
 
 -- lualine setup

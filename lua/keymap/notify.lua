@@ -1,8 +1,9 @@
+-- Remove all notifications
 vim.keymap.set(
   "n",
-  "<leader>un",
+  "<leader>nc",
   function()
     require("notify").dismiss({ silent = true, pending = true })
   end,
-  { desc = "Dismiss all Notifications" }
+  { desc = "[N]otifications [C]lose" }
 )
