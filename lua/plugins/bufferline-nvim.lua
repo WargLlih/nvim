@@ -1,12 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
-  keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-  },
   opts = {
     options = {
       -- stylua: ignore
@@ -18,7 +12,7 @@ return {
       diagnostics_indicator = function(_, _, diag)
         local icons = require("lazyvim.config").icons.diagnostics
         local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-          .. (diag.warning and icons.Warn .. diag.warning or "")
+            .. (diag.warning and icons.Warn .. diag.warning or "")
         return vim.trim(ret)
       end,
       offsets = {

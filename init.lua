@@ -21,13 +21,6 @@ require("lazy").setup("plugins")
 -- using kanagawa
 vim.cmd("colorscheme kanagawa-dragon")
 
--- keymaps
-require("keymap.base")
-require("keymap.editor")
-require("keymap.lazy")
-require("keymap.notify")
-require("keymap.telescope-keymaps")
-
 -- lualine setup
 require('lualine').setup({
   options = { theme = 'iceberg_dark' }
@@ -37,10 +30,20 @@ require('lualine').setup({
 vim.opt.termguicolors = true
 require("bufferline").setup {}
 
-
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   buffer = buffer,
 --   callback = function()
 --     vim.lsp.buf.format { async = false }
 --   end
 -- })
+
+-- keymaps
+require("keymap.base")
+require("keymap.editor")
+
+-- plugins keymaps
+require("keymap.plugins.lazy")
+require("keymap.plugins.notify")
+require("keymap.plugins.telescope-keymaps")
+require("keymap.plugins.bufferline-keymaps")
+
