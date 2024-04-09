@@ -23,7 +23,7 @@ vim.cmd("colorscheme kanagawa-dragon")
 
 -- lualine setup
 require('lualine').setup({
-  options = { theme = 'iceberg_dark' }
+  options = { theme = 'codedark' }
 })
 
 -- bufferline setup
