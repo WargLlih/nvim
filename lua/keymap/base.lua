@@ -24,4 +24,4 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Toogle relative numbers
-vim.keymap.set('n', '<leader>nr', '<cmd>set relativenumber!<CR>', { desc = 'Toggle [N]umbers [R]elative' })
+vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = 'Toggle [N]umbers [R]elative' })

@@ -65,3 +65,5 @@ vim.opt.relativenumber = true
 vim.opt.colorcolumn = { 80 }
 
 vim.opt.wrap = true
+
+vim.opt.foldenable = true
