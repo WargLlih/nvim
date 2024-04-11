@@ -28,7 +28,7 @@ vim.keymap.set(
   "<leader>ts",
   function()
     if vim.opt.listchars:get().tab == "» " then
-      vim.opt.listchars = { tab = "│ ", trail = "·", nbsp = "␣" }
+      vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
     else
       vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
     end
@@ -36,3 +36,4 @@ vim.keymap.set(
   { desc = "Toggle listchars style" }
 )
 
+vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
