@@ -30,9 +30,13 @@ require('lualine').setup({
 vim.opt.termguicolors = true
 require("bufferline").setup {}
 
+-- git signs setup
+require('gitsigns').setup()
+
 -- keymaps
 require("keymap.base")
 require("keymap.editor")
+
 
 -- plugins keymaps
 require("keymap.plugins.lazy")

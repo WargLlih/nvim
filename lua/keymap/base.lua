@@ -26,4 +26,4 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 -- Toogle relative numbers
 vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = 'Toggle [N]umbers [R]elative' })
 
-vim.keymap.seta("i", "jk", "<esc>")
+vim.keymap.set("i", "jk", "<esc>")
