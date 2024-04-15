@@ -29,3 +29,6 @@ require("keymap.editor")
 require("keymap.plugins.lazy")
 require("keymap.plugins.telescope-keymaps")
 require("keymap.plugins.copilot")
+
+-- auto cmds
+require("auto")
