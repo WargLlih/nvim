@@ -9,9 +9,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Filesytem
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>", { desc = "Toggle file explorer" })
 
--- Close current buffer
-vim.keymap.set("n", "q", "<cmd>bdelete<cr><esc><cmd>blast<cr><esc>", { desc = "Delete buffer" })
-
 -- Auto format
 vim.keymap.set(
   "n",
@@ -36,4 +33,5 @@ vim.keymap.set(
   { desc = "Toggle listchars style" }
 )
 
-vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+vim.keymap.set("n", "<leader>tz", "<cmd>:ZenMode<cr>", { desc = "Toggle Zenmode" })
+

@@ -4,7 +4,7 @@ return {
     -- Draw options
     draw = {
       -- Delay (in ms) between event and start of drawing scope indicator
-      delay = 100,
+      delay = 80,
 
       -- Symbol priority. Increase to display on top of more symbols.
       priority = 2,
@@ -23,10 +23,6 @@ return {
 
     -- Options which control scope computation
     options = {
-      -- Type of scope's border: which line(s) with smaller indent to
-      -- categorize as border. Can be one of: 'both', 'top', 'bottom', 'none'.
-      border = 'both',
-
       -- Whether to use cursor column when computing reference indent.
       -- Useful to see incremental scopes with horizontal cursor movements.
       indent_at_cursor = true,

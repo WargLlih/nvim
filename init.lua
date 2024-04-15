@@ -19,19 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- using kanagawa
-vim.cmd("colorscheme kanagawa-dragon")
-
--- lualine setup
-require('lualine').setup({
-  options = { theme = 'codedark' }
-})
-
--- bufferline setup
-vim.opt.termguicolors = true
-require("bufferline").setup {}
-
--- git signs setup
-require('gitsigns').setup()
+-- vim.cmd("colorscheme nyoom")
 
 -- keymaps
 require("keymap.base")
@@ -40,5 +28,4 @@ require("keymap.editor")
 -- plugins keymaps
 require("keymap.plugins.lazy")
 require("keymap.plugins.telescope-keymaps")
-require("keymap.plugins.bufferline-keymaps")
 require("keymap.plugins.copilot")

@@ -44,4 +44,9 @@ return {
       col = 1
     },
   },
+  config = {
+    function()
+      require('gitsigns').setup()
+    end,
+  }
 }
