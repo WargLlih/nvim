@@ -68,3 +68,32 @@ vim.opt.colorcolumn = { 80 }
 vim.opt.wrap = true
 
 vim.opt.foldenable = true
+
+-- Specify how the border looks like
+local border = {
+  { '┌', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '┐', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+  { '┘', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '└', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+}
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = border }
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = border }
+)
+
+vim.diagnostic.config({
+  float = {
+    border = border ,
+  },
+})
+
