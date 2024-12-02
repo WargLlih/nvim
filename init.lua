@@ -47,6 +47,20 @@ require("lazy").setup("plugins", {
 })
 
 require("bufferline").setup()
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 require('gitsigns').setup()
 vim.notify = require("notify")
 
@@ -57,6 +71,7 @@ require("keymap.editor")
 -- plugins keymaps
 require("keymap.plugins.lazy")
 require("keymap.plugins.telescope-keymaps")
+require("keymap.plugins.tree")
 
 -- auto cmds
 require("auto")
