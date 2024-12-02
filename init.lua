@@ -46,7 +46,6 @@ require("lazy").setup("plugins", {
   },
 })
 
-require("bufferline").setup()
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
