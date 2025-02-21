@@ -1,3 +1,4 @@
+function telescope()
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -13,3 +14,9 @@ vim.keymap.set('n', '<leader>sb', function()
     prompt_title = 'Live Grep in Open Files',
   }
 end, { desc = '[S]earch [B]uffers' })
+
+end
+
+return {
+	telescope = telescope
+}

@@ -1,62 +1,19 @@
-require("basic_settings")
+local start = require("start")
+local auto = require("auto")
+local keymap = require("keymap")
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Basic stuffs
+start.settings.set_basic_settings()
 
--- setup plugins
-local border = {
-  { '┌', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '┐', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-  { '┘', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '└', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-}
+-- Setup plugings
+start.lazy.start_lazy()
+start.lazy.setup_plugings()
 
-require("lazy").setup("plugins", {
-  -- ui config
-  ui = {
-    border = border,
-    size = {
-      width = 0.8,
-      height = 0.8,
-    },
-  },
+-- My keymaps
+keymap.general.quality_of_life()
+keymap.general.editor()
+keymap.plugins.telescope.telescope()
+keymap.plugins.tree.toogle_tree()
 
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
-
-require('gitsigns').setup()
-vim.notify = require("notify")
-
--- keymaps
-require("keymap.base")
-require("keymap.editor")
-
--- plugins keymaps
-require("keymap.plugins.lazy")
-require("keymap.plugins.telescope-keymaps")
-require("keymap.plugins.tree")
-
--- auto cmds
-require("auto")
+-- Auto functions
+auto.text_highlight()
