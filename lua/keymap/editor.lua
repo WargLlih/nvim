@@ -13,10 +13,10 @@ vim.keymap.set("i", "<C-j>", "<down>", { desc = "Move down in insert mode" })
 vim.keymap.set("i", "<C-k>", "<up>", { desc = "Move up in insert mode" })
 
 -- Tab control
-vim.keymap.set("n", "<leader>tn", ":tabnew<cr>", { desc = "[T]ab [N]ew" })
-vim.keymap.set("n", "<leader>tc", ":tabclose<cr>", { desc = "[T]ab [C]lose" })
+-- vim.keymap.set("n", "<leader>tn", ":tabnew<cr>", { desc = "[T]ab [N]ew" })
+-- vim.keymap.set("n", "<leader>tc", ":tabclose<cr>", { desc = "[T]ab [C]lose" })
 -- vim.keymap.set("n", "<Tab>", ":tabnext<cr>", { desc = "Next tab" })
-vim.keymap.set("n", "<S-Tab>", ":tabprevious<cr>", { desc = "Previous tab" })
+-- vim.keymap.set("n", "<S-Tab>", ":tabprevious<cr>", { desc = "Previous tab" })
 
 -- Buffer control
 vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit" })
@@ -51,4 +51,3 @@ vim.keymap.set(
   end,
   { desc = "Toggle listchars style" }
 )
-

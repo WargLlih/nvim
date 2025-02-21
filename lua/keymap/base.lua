@@ -31,3 +31,8 @@ vim.keymap.set('n', '<leader>tn', '<cmd>set relativenumber!<CR>', { desc = 'Togg
 
 vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("i", "kj", "<esc>")
+
+-- Abre um terminal em um novo buffer
+vim.keymap.set('n', '<leader>k', ':tab term<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('t', '<S-esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
