@@ -36,8 +36,12 @@ end
 
 function setup_plugings()
   require('gitsigns').setup()
+
   vim.notify = require("notify")
+
   require('mini.animate').setup()
+
+  -- require('transparent').clear_prefix('NeoTree')
 end
 
 return {
