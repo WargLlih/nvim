@@ -1,6 +1,6 @@
 function text_highlight()
-  local augroup = vim.api.nvim_create_augroup      -- Create/get autocommand group
-  local autocmd = vim.api.nvim_create_autocmd      -- Create autocommand
+  local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+  local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
   -- local usercmd = vim.api.nvim_create_user_command -- Create user command
   autocmd("TextYankPost", {
     group = augroup("YankHighlight", { clear = true }),
@@ -11,5 +11,5 @@ function text_highlight()
 end
 
 return {
-  text_highlight=text_highlight
+  text_highlight = text_highlight
 }

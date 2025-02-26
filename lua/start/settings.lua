@@ -94,6 +94,6 @@ function set_basic_settings()
 end
 
 return {
-	border = border,
-	set_basic_settings = set_basic_settings
+  border = border,
+  set_basic_settings = set_basic_settings
 }
