@@ -1,6 +1,7 @@
 local start = require("start")
 local auto = require("auto")
 local keymap = require("keymap")
+local commands = require("commands")
 
 -- Basic stuffs
 start.settings.set_basic_settings()
@@ -17,3 +18,7 @@ keymap.plugins.tree.toogle_tree()
 
 -- Auto functions
 auto.text_highlight()
+
+-- Commands
+commands.CreateEasyMode()
+commands.CreateNormalMode()
