@@ -1,6 +1,6 @@
-local function normalMode()
-  vim.api.nvim_create_user_command('NormalMode', function()
-    -- set on cmp
+local function hardMode()
+  vim.api.nvim_create_user_command('HardMode', function()
+    -- set off cmp
     local cmp = require('cmp')
     cmp.setup {
       enabled = false,
@@ -8,17 +8,17 @@ local function normalMode()
         ['<C-n>'] = function() end,
         ['<C-p>'] = function() end,
         ['<C-y>'] = function() end,
-        ['<C-Space>'] = cmp.mapping.complete {},
-      },
+        ['<C-Space>'] = function() end,
+      }
     }
 
     -- set off IA
     vim.cmd('Copilot disable')
 
-    vim.notify("You are in NormalMode", vim.log.levels.INFO)
+    vim.notify("You are in HardMode. Good Luck!", vim.log.levels.INFO)
   end, {})
 end
 
 return {
-  normalMode = normalMode
+  hardMode = hardMode
 }

@@ -4,7 +4,6 @@ local function easyMode()
     local cmp = require('cmp')
     cmp.setup {
       enabled = true,
-
       mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -16,7 +15,7 @@ local function easyMode()
     -- set on IA
     vim.cmd('Copilot enable')
 
-    vim.notify("Completion enabled", vim.log.levels.INFO)
+    vim.notify("You are in EasyMode >.<", vim.log.levels.INFO)
   end, {})
 end
 

@@ -22,3 +22,4 @@ auto.text_highlight()
 -- Commands
 commands.CreateEasyMode()
 commands.CreateNormalMode()
+commands.CreateHardMode()
