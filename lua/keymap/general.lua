@@ -11,7 +11,20 @@ function quality_of_life()
   vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
   -- save file
-  vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+  vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", function()
+    -- Format the buffer
+    vim.lsp.buf.format({ async = false })
+
+    -- Run organize imports code action
+    vim.lsp.buf.code_action({
+      context = { only = { "source.organizeImports" } },
+      apply = true,
+      async = false                 -- Make it synchronous
+    })
+
+    -- Save the file
+    vim.cmd("w")
+  end, { desc = "Save file" })
 
   -- restart LSP
   vim.keymap.set("n", "<A-S-l>", "<cmd>LspRestart<cr><esc>", { desc = "Restart LSP" })
@@ -50,17 +63,6 @@ function editor()
   -- Error / Warn seek
   vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
   vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-
-  -- Auto format
-  vim.keymap.set(
-    "n",
-    "<A-S-f>",
-    function()
-      vim.lsp.buf.format { async = false }
-      vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
-    end,
-    { desc = "Format buffer" }
-  )
 
   -- Toggle listchars style
   vim.keymap.set(
