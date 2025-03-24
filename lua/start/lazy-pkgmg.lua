@@ -26,10 +26,10 @@ function start_lazy()
 
     checker = {
       enabled = true,
-      notify = false,
+      notify = true,
     },
     change_detection = {
-      notify = false,
+      notify = true,
     },
   })
 end
@@ -41,7 +41,16 @@ function setup_plugings()
 
   require('mini.animate').setup()
 
-  -- require('transparent').clear_prefix('NeoTree')
+  require("mason").setup({
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗"
+      },
+      border = base.border,
+    }
+  })
 end
 
 return {
