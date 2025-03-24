@@ -63,7 +63,7 @@ function set_basic_settings()
   -- when you use the '>>' or '<<' operators to add or remove
   -- indentation to an already existing line/block of code
   -- Set relative numbers
-  vim.opt.relativenumber = false
+  vim.opt.relativenumber = true
 
   -- Set column indicator at 80
   -- vim.opt.colorcolumn = { 80 }
