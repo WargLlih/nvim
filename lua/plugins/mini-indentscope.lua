@@ -4,7 +4,7 @@ return {
     -- Draw options
     draw = {
       -- Delay (in ms) between event and start of drawing scope indicator
-      delay = 80,
+      delay = 50,
 
       -- Symbol priority. Increase to display on top of more symbols.
       priority = 2,

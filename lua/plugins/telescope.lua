@@ -1,71 +1,101 @@
+-- Telescope: Fuzzy finder and picker
+-- Telescope é um fuzzy finder extensível que permite buscar arquivos, texto, símbolos, etc.
+-- Funcionalidades:
+-- - Busca fuzzy de arquivos
+-- - Busca de texto no projeto
+-- - Navegação de símbolos
+-- - Integração com LSP
+-- - Múltiplos pickers e extensões
 return {
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.5',
-  event = 'VimEnter',
-  branch = '0.1.x',
+  "nvim-telescope/telescope.nvim",
+  tag = "0.1.6",
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    { -- If encountering errors, see telescope-fzf-native README for install instructions
-      'nvim-telescope/telescope-fzf-native.nvim',
-
-      -- `build` is used to run some command when the plugin is installed/updated.
-      -- This is only run then, not every time Neovim starts up.
-      build = 'make',
-
-      -- `cond` is a condition used to determine whether this plugin should be
-      -- installed and loaded.
+    "nvim-lua/plenary.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
       cond = function()
-        return vim.fn.executable 'make' == 1
+        return vim.fn.executable("make") == 1
       end,
     },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
-
-    -- Useful for getting pretty icons, but requires special font.
-    --  If you already have a Nerd Font, or terminal set up with fallback fonts
-    --  you can enable this
-    -- { 'nvim-tree/nvim-web-devicons' }
+  },
+  keys = {
+    { "<leader>ff", "<cmd>Telescope find_files<cr>",            desc = "Find files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>",             desc = "Live grep" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>",               desc = "Buffers" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>",             desc = "Help tags" },
+    { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>",  desc = "Document symbols" },
+    { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace symbols" },
+    { "<leader>fr", "<cmd>Telescope lsp_references<cr>",        desc = "References" },
+    { "<leader>fd", "<cmd>Telescope lsp_definitions<cr>",       desc = "Definitions" },
+    { "<leader>ft", "<cmd>Telescope lsp_type_definitions<cr>",  desc = "Type definitions" },
+    { "<leader>fi", "<cmd>Telescope lsp_implementations<cr>",   desc = "Implementations" },
+    { "<leader>fR", "<cmd>Telescope resume<cr>",                desc = "Resume last search" },
   },
   config = function()
-    -- Telescope is a fuzzy finder that comes with a lot of different things that
-    -- it can fuzzy find! It's more than just a "file finder", it can search
-    -- many different aspects of Neovim, your workspace, LSP, and more!
-    --
-    -- The easiest way to use telescope, is to start by doing something like:
-    --  :Telescope help_tags
-    --
-    -- After running this command, a window will open up and you're able to
-    -- type in the prompt window. You'll see a list of help_tags options and
-    -- a corresponding preview of the help.
-    --
-    -- Two important keymaps to use while in telescope are:
-    --  - Insert mode: <c-/>
-    --  - Normal mode: ?
-    --
-    -- This opens a window that shows you all of the keymaps for the current
-    -- telescope picker. This is really useful to discover what Telescope can
-    -- do as well as how to actually do it!
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
-    require('telescope').setup {
-      -- You can put your default mappings / updates / etc. in here
-      --  All the info you're looking for is in `:help telescope.setup()`
-      --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
-      -- pickers = {}
-      extensions = {
-        ['ui-select'] = {
-          require('telescope.themes').get_dropdown(),
+    telescope.setup({
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+            ["<C-x>"] = actions.delete_buffer,
+          },
+          n = {
+            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+            ["<C-x>"] = actions.delete_buffer,
+          },
+        },
+        file_ignore_patterns = {
+          "%.git/",
+          "%.DS_Store",
+          "node_modules/",
+          "%.pyc",
+          "%.class",
+          "%.jar",
+          "%.war",
+          "%.ear",
+        },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob=!.git/",
         },
       },
-    }
+      pickers = {
+        find_files = {
+          hidden = true,
+          no_ignore = false,
+          no_ignore_parent = false,
+        },
+        live_grep = {
+          only_sort_text = true,
+        },
+      },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      },
+    })
 
-    -- Enable telescope extensions, if they are installed
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
-  end
+    -- Load extensions safely
+    local ok, _ = pcall(telescope.load_extension, "fzf")
+    if not ok then
+      vim.notify("telescope-fzf-native not available, using default sorting", vim.log.levels.WARN)
+    end
+  end,
 }
