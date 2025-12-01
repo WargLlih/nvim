@@ -1,64 +1,26 @@
-require("basic_settings")
+-- Basic stuffs
+require("start.settings").Set_basic_settings()
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Setup plugings
+require("start.lazy-pkgmg").Start_lazy()
+require("start.lazy-pkgmg").Setup_plugings()
 
--- setup plugins
-local border = {
-  { '┌', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '┐', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-  { '┘', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '└', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-}
+-- My keymaps
+require("keymap.general").Quality_of_life()
+require("keymap.general").Editor()
 
-require("lazy").setup("plugins", {
-  -- ui config
-  ui = {
-    border = border,
-    size = {
-      width = 0.8,
-      height = 0.8,
-    },
-  },
+-- Custom modules
+require("custom.lazygit")
 
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
+-- Auto functions
+require("auto.cmd").Text_highlight()
 
-require("bufferline").setup()
-require('gitsigns').setup()
-vim.notify = require("notify")
+-- Commands
+require("commands.cmds").EasyMode()
+require("commands.cmds").NormalMode()
+require("commands.cmds").HardMode()
 
--- keymaps
-require("keymap.base")
-require("keymap.editor")
 
--- plugins keymaps
-require("keymap.plugins.lazy")
-require("keymap.plugins.telescope-keymaps")
-
--- auto cmds
-require("auto")
-
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
