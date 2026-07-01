@@ -38,6 +38,7 @@ return {
         "yamlls",
         "bashls",
         "marksman",
+        "gopls",
       },
       automatic_installation = true,
     })
@@ -215,6 +216,22 @@ return {
     vim.lsp.config("marksman", {
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    -- Go LSP
+    vim.lsp.config("gopls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        gopls = {
+          gofumpt = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+          staticcheck = true,
+        },
+      },
     })
 
     -- Apply on_attach to all LSP clients
