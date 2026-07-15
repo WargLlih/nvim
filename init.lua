@@ -11,7 +11,6 @@ require("keymap.general").Editor()
 
 -- Custom modules
 require("custom.lazygit")
-require("custom.explorer")
 
 -- Auto functions
 require("auto.cmd").Text_highlight()

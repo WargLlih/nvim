@@ -38,6 +38,12 @@ return {
 
     telescope.setup({
       defaults = {
+        -- nvim-treesitter's rewritten "main" branch dropped the legacy API
+        -- (ft_to_lang, get_parser, ...) that Telescope's previewer still calls,
+        -- so treesitter preview highlighting crashes; fall back to regex highlighting.
+        preview = {
+          treesitter = false,
+        },
         mappings = {
           i = {
             ["<C-j>"] = actions.move_selection_next,
